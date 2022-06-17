@@ -1,2 +1,2 @@
-# Summer_Dissertation
-# Summer_Dissertation
+# This repository is realated to my summer disertation project 
+
