@@ -1,2 +1,2 @@
-# This repository is realated to my summer disertation project 
+# This repository is related to my summer disertation project 
 
