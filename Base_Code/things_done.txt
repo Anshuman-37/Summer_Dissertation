@@ -1,0 +1,12 @@
+## Things done in the code by Flora are mentioned here
+
+
+A package called NiBabel is used to read the data 
+She uses the function get_data() whose documentation is at https://nipy.org/nibabel/reference/nibabel.dataobj_images.html
+She is trying to impelement a step decay i.e. reducing the learning rate with increase in epochs
+She designs the unet architecture with he_normal weight intiallization read about he_normal more here(https://stackoverflow.com/questions/48641192/xavier-and-he-normal-initialization-difference)
+Then she runs the model with implementing callbacks
+For Mean square error she is literraly reducing the label images from the predicted images
+This is all that I can understand is in the code
+
+ 
