@@ -12,7 +12,10 @@ hmemq - High Memory Node
 
 ## User specific commands 
 
-
+squeue - tells about the jobs running (squeue -l gives more detail)
+scancel - (Cancels specific job id) just mention the job_id to cancel it. Syntax - scancel 83403
+sinfo - provides the summary of nodes 
+sacct - displays jobs owned by the specific user using the cluster 
 
 
 ## Job specific commands
@@ -20,11 +23,11 @@ hmemq - High Memory Node
 sbatch --partition=devq --nodes=1 --ntasks-per-node=1 --mem=100m --time=00:01:00 myjob.sh
 
 -- partition - Defining the partition (mostly votaq for us) the 
---
---
--- mem  - Defining the memory required 100m is 100 megabytes can use g for gigabyte 
--- time - its is hours minutes and seconds. 
--- gres - (Not present in the command but) It allocates the number of gpus per node 1 , 2 --gre = gpu:1 , --gre = gpu:2 
+-- nodes -  
+-- ntasks-per-node - 
+-- mem   - Defining the memory required 100m is 100 megabytes can use g for gigabyte 
+-- time  - its is hours minutes and seconds. 
+-- gres  - (Not present in the command but) It allocates the number of gpus per node 1 , 2 --gre = gpu:1 , --gre = gpu:2 
 -- 
 
 ############################
