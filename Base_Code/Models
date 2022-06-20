@@ -4,11 +4,13 @@ from tensorflow.keras.layers import Conv3D, Dropout, MaxPooling3D, concatenate, 
 print(tf.config.list_physical_devices('GPU'))
 print(tf.__version__)
 print("imported tensorflow") 
+import Loss
+import Optimizer
 
 
 
 ### Model 1  UNET
-def unet_model(input_size):
+def unet_model(input_size, optimizer_name):
 
     '''This is the custom unet architecture designed for the code'''
     unet_inputs = tf.keras.Input(input_size)#(64,72,64,2))#
@@ -49,6 +51,8 @@ def unet_model(input_size):
     conv8 = Conv3D(1, 1, activation = 'relu', use_bias=True, padding = 'same', kernel_initializer = 'he_normal')(conv7)
 
     model = tf.keras.Model(inputs = unet_inputs, outputs = conv8)
+
+    model.complile(loss=Loss.masked_mse)
     # model.summary()
     return model
 
