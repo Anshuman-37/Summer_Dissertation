@@ -6,10 +6,10 @@ DEADLINES
 
 23rd-24th June 
 1. We need to understand the data - Understand the values in the tensor
-2. Reading the data and its visualization - 
-3. Downloading the software fsleyes and understanding it
+2. Reading the data and its visualization - Done
+3. Downloading the software fsleyes and understanding it - Done
 
-26th-30th June
+25th-29th June
 3. Thinking about the attributes and how to pass the data to the model
 4. Writing code for the model
 5. Running it on the cluster using shell scripting 
