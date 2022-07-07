@@ -8,4 +8,4 @@ A model that takes Mri data ( dimensions -  (288, 288, 180)	) as input and retur
 
 First attempt - 
 
-Trying a UNET to obtain the results
+Trying a Normal 3D CNN
