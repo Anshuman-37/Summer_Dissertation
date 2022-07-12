@@ -53,7 +53,7 @@ def create_data_dict(mri_data_path,asl_data_path):
     ## Iterating over the mri data's path
     for i in mri_data_path:
     ## Value is our path i.e. stored and key is the patient number
-        value = i; key = i.split('/')[5].split(' ')[0]; mri_map[key] = value;
+        value = i; key = i.split('/')[4].split(' ')[0]; mri_map[key] = value;
     ## Iterating over the mri data's path
     for i in asl_data_path:
         ## Value is our path i.e. stored and key is the patient number
