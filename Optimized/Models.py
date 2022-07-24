@@ -36,7 +36,7 @@ class BaseModel(Module):
     '''Class for the Model to be fitted on MRI data'''
     def __init__(self, c):
         '''Intiallizing the layers of the Model'''
-        super(Model_1, self).__init__();
+        super(BaseModel, self).__init__();
         self.hidden1 = hidden(1,c);
         self.hidden2 = hidden(c,2*c);
         self.hidden3 = hidden(2*c,4*c);
@@ -63,8 +63,8 @@ def get_model(Name,channels):
     Params - Name of the model
     Result - Returns the model
     '''
-    if Name == 'BaseLine':
-        return BaseLine(channels).to(device) 
+    if Name == 'Base':
+        return BaseModel(channels).to(device) 
         
 def summary(model):
     '''
