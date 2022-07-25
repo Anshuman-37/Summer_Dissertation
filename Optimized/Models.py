@@ -66,10 +66,10 @@ def get_model(Name,channels):
     if Name == 'Base':
         return BaseModel(channels).to(device) 
         
-def get_summary(model):
-    '''
-    Params - Pytorch Model
-    Result - Returns the summary of the model
-    '''        
-    return summary(model,(1, 288, 288, 180))
+# def get_summary(model):
+#     '''
+#     Params - Pytorch Model
+#     Result - Returns the summary of the model
+#     '''        
+#     return summary(model,(1, 288, 288, 180))
 
