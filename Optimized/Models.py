@@ -12,7 +12,7 @@ device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 from torch.autograd import Variable
 from torch.nn import Linear, ReLU, CrossEntropyLoss, Sequential, LazyConv3d , MaxPool3d, Module, Softmax, BatchNorm3d, Dropout, Conv3d, MSELoss
 from torch.optim import Adam, SGD
-from torchsummary import summary
+from torchsummary import summary as tfsum 
 from tqdm import tqdm
 torch.cuda.empty_cache()
 
@@ -54,6 +54,8 @@ class BaseModel(Module):
         x = self.hidden6(x)
         x = self.hidden7(x)
         return x 
+    def summary(self):
+        return tfsumm(self,(1, 91, 109, 91))
 
 channels = 1; #3 Defining the number od channels we have for neural network
 # Intializing model
@@ -64,7 +66,7 @@ def get_model(Name,channels):
     Result - Returns the model
     '''
     if Name == 'Base':
-        return BaseModel(channels).to(device) 
+        return BaseModel(channels).to(device)
         
 # def get_summary(model):
 #     '''
