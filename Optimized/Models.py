@@ -73,3 +73,26 @@ def get_model(Name,channels):
 #     '''        
 #     return summary(model,(1, 288, 288, 180))
 
+def train(model,epochs,batch_size,x,y):
+        '''
+        Params - Gets the model being trained , epochs, batch size , train x  and train y 
+        Retunrs the train loss and the To train the neural network and return the losses
+        '''
+        ctr = 0; train_loss = []; 
+        lossFn = MSELoss(); opt = Adam(model.parameters(), lr=1e-5);
+        X = x.to(device); Y = y.to(device);
+        for e in tqdm(range(0, epochs)):
+            model.train(); batch_loss = [];
+            permutation = torch.randperm(X.size()[0])
+            for i in range(0,X.size()[0], batch_size):
+                opt.zero_grad();
+                indices = permutation[i:i+batch_size];
+                batch_x, batch_y = X[indices], Y[indices];
+                pred = model(batch_x) ; loss = lossFn(pred, batch_y);
+                loss.backward(); opt.step();
+                batch_loss.append(loss); 
+            train_loss.append(batch_loss);
+            print(batch_loss); ctr = ctr+1; 
+            if ctr < epochs-1:
+                del loss , pred
+        return train_loss, pred; 
