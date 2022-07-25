@@ -9,6 +9,7 @@ import re
 import nibabel as nib
 import numpy as np
 import torch
+import regtricks as rt
 print(torch.__version__)
 print(torch.cuda.is_available())
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu');print(device)
@@ -72,7 +73,8 @@ def create_tensors(mri_data_dict,asl_data_dict,device):
     for k,v in mri_data_dict.items():
         if k in asl_data_dict:
             # Loading the MRI image from the path in the train x path 
-            mri_img = nib.load(v); 
+            mri_img_x = nib.load(v); asl_img = nib.load(asl_data_dict[k]); str2asl_reg=rt.flirt(src=mri_img_x,ref=asl_img)
+            mri_img =  str2asl_reg.apply_to_image(mri_img_x,ref=asl_img)
             # Making it a numpy array
             mri_vec = np.array(mri_img.dataobj)[np.newaxis,:,:,:] # Channels x Length X Breadth X Slices of Brain
             # Min max Normalizing the image 
