@@ -105,7 +105,7 @@ def train_model_3D(epochs,batch_size,x,y,channels=1):
             del loss , pred;
         train_loss.append(batch_loss);
         ## Printing the verbose
-        if(e%10 == 0): 
+        if(e%25 == 0): 
             print(batch_loss[-1]); print((torch.cuda.memory_allocated())/(1024*1024))
     ## Freeing up GPU memory
     del X,Y;
