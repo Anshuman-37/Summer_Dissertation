@@ -115,7 +115,7 @@ class convnet_2D(Module):
 ##### User Definied Functions 
 
 ## Training a 3D convnet
-def train_3D_conv(epochs,batch_size,x,y,channels=1):
+def train_conv_3D(epochs,batch_size,x,y,channels=1):
     '''
     Params - Epochs, Batch Size, Data, Channels default = 1 
     Result - Returns the predictions and train loss 
@@ -125,7 +125,7 @@ def train_3D_conv(epochs,batch_size,x,y,channels=1):
     return train(model,epochs,batch_size,x,y,channels)
 
 #### Training a 2D convnet
-def train_2D_conv(epochs,batch_size,x,y,channels=1):
+def train_conv_2D(epochs,batch_size,x,y,channels=1):
     '''
     Params - Epochs, Batch Size, Data, Channels default = 1 
     Result - Returns the predictions and train loss 

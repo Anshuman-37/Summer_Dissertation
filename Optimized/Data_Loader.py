@@ -92,7 +92,7 @@ def create_tensors(mri_data_dict,asl_data_dict,device):
             Y = torch.stack(y,dim=0)#.to(device);
     return X,Y
 
-def create_tensors_2D(x,y):
+def create_tensors_2D(x,y,slice_number):
     '''
     Params - Dictionary of MRI Data, ASL data and the device to which the tensors are stored
     Result - Creates tensors from the data dictionary feeded
@@ -100,7 +100,7 @@ def create_tensors_2D(x,y):
     x_1 = []; y_1 = [];
     print(x.shape); print(y.shape); 
     X = x.cpu().detach().numpy(); Y = y.cpu().detach().numpy();
-    for i in range(0,x_3d.shape[0]): x_1.append(X[i][:,:,:,slice_number]); y_1.append(Y[i][:,:,:,slice_number])
+    for i in range(0,x.shape[0]): x_1.append(X[i][:,:,:,slice_number]); y_1.append(Y[i][:,:,:,slice_number])
     x_1 = torch.as_tensor(np.array(x_1),dtype=torch.float32); y_1 = torch.as_tensor(np.array(y_1),dtype=torch.float32)
     return x_1 , y_1
 
@@ -151,7 +151,7 @@ def data_loader_2D(path_mri,path_asl,slice_number,device):
     
     ## Creating the 3D Tensors of the MRI and ASL data
     x_1 , y_1 = create_tensors(mri_data_dict,asl_data_dict,device);
-    x , y = create_tensors_2D(x_1,y_1); 
+    x , y = create_tensors_2D(x_1,y_1,slice_number); 
     return x , y
 
 def data_split(x,y,size):
