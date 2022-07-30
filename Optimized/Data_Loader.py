@@ -73,7 +73,9 @@ def create_tensors(mri_data_dict,asl_data_dict,device):
     for k,v in mri_data_dict.items():
         if k in asl_data_dict:
             # Loading the MRI image from the path in the train x path 
-            mri_img_x = nib.load(v); asl_img = nib.load(asl_data_dict[k]); str2asl_reg=rt.flirt(src=mri_img_x,ref=asl_img)
+            mri_img_x = nib.load(v); asl_img = nib.load(asl_data_dict[k]); 
+            ## Performing the data registration 
+            str2asl_reg=rt.flirt(src=mri_img_x,ref=asl_img)
             mri_img =  str2asl_reg.apply_to_image(mri_img_x,ref=asl_img)
             # Making it a numpy array
             mri_vec = np.array(mri_img.dataobj)[np.newaxis,:,:,:] # Channels x Length X Breadth X Slices of Brain
@@ -89,6 +91,18 @@ def create_tensors(mri_data_dict,asl_data_dict,device):
             X = torch.stack(x,dim=0)#.to(device);
             Y = torch.stack(y,dim=0)#.to(device);
     return X,Y
+
+def create_tensors_2D(x,y):
+    '''
+    Params - Dictionary of MRI Data, ASL data and the device to which the tensors are stored
+    Result - Creates tensors from the data dictionary feeded
+    '''
+    x_1 = []; y_1 = [];
+    print(x.shape); print(y.shape); 
+    X = x.cpu().detach().numpy(); Y = y.cpu().detach().numpy();
+    for i in range(0,x_3d.shape[0]): x_1.append(X[i][:,:,:,slice_number]); y_1.append(Y[i][:,:,:,slice_number])
+    x_1 = torch.as_tensor(np.array(x_1),dtype=torch.float32); y_1 = torch.as_tensor(np.array(y_1),dtype=torch.float32)
+    return x_1 , y_1
 
 def print_data_shape(data):
     '''
@@ -112,7 +126,7 @@ def print_data_dimension(data):
     '''
     print(data.shape)
 
-def data_loader(path_mri,path_asl,device):
+def data_loader_3D(path_mri,path_asl,device):
     '''
     Params - Directory of MRI data, ASL data, and device to store the tensors
     Result - This function will return us the mri and asl data in format we want
@@ -124,6 +138,21 @@ def data_loader(path_mri,path_asl,device):
     ## Creating the Tensors of the MRI and ASL data
     x , y = create_tensors(mri_data_dict,asl_data_dict,device);
     return x,y
+
+def data_loader_2D(path_mri,path_asl,slice_number,device):
+    '''
+    Params - Directory of MRI data, ASL data, and device to store the tensors
+    Result - This function will return us the mri and asl data in format we want
+    '''
+    ## Getting path of all MRI data stored and ASL data stored
+    mri_data = get_mri_data(path_mri); asl_data = get_asl_data(path_asl);
+    ## Making dict of MRI data for which ASL data exists
+    mri_data_dict , asl_data_dict = create_data_dict(mri_data,asl_data);
+    
+    ## Creating the 3D Tensors of the MRI and ASL data
+    x_1 , y_1 = create_tensors(mri_data_dict,asl_data_dict,device);
+    x , y = create_tensors_2D(x_1,y_1); 
+    return x , y
 
 def data_split(x,y,size):
     '''
