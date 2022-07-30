@@ -5,7 +5,6 @@
 
 
 ### Import Files
-from tkinter import BASELINE
 import torch
 print(torch.__version__)
 print(torch.cuda.is_available())
