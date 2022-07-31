@@ -1,0 +1,32 @@
+#!/bin/bash
+
+scp -r ppxas6@login001.augusta.nottingham.ac.uk:/gpfs01/share/TILDA/test_pipeline/DATA/sub-1314913/oxasl/output/std/calib_voxelwise /Users/anshuman/Desktop/TILDA_DATA/Main_Data/sub-1314913/calib_voxelwise/
+
+scp -r ppxas6@login001.augusta.nottingham.ac.uk:/gpfs01/share/TILDA/test_pipeline/DATA/sub-1300850/BRC_T1/analysis/anatMRI/T1/processed/data2std/  /Users/anshuman/Desktop/TILDA_DATA/Main_Data/sub-1300850 
+
+scp -r ppxas6@login001.augusta.nottingham.ac.uk:/gpfs01/share/TILDA/test_pipeline/DATA/sub-1300850/oxasl/output/std/calib_voxelwise /Users/anshuman/Desktop/TILDA_DATA/Main_Data/sub-1300850/calib_voxelwise/
+
+scp -r ppxas6@login001.augusta.nottingham.ac.uk:/gpfs01/share/TILDA/test_pipeline/DATA/sub-1336194/BRC_T1/analysis/anatMRI/T1/processed/data2std/  /Users/anshuman/Desktop/TILDA_DATA/Main_Data/sub-1336194 
+
+scp -r ppxas6@login001.augusta.nottingham.ac.uk:/gpfs01/share/TILDA/test_pipeline/DATA/sub-1336194/oxasl/output/std/calib_voxelwise /Users/anshuman/Desktop/TILDA_DATA/Main_Data/sub-1336194/calib_voxelwise/
+
+scp -r ppxas6@login001.augusta.nottingham.ac.uk:/gpfs01/share/TILDA/test_pipeline/DATA/sub-1314911/BRC_T1/analysis/anatMRI/T1/processed/data2std/  /Users/anshuman/Desktop/TILDA_DATA/Main_Data/sub-1314911 
+
+scp -r ppxas6@login001.augusta.nottingham.ac.uk:/gpfs01/share/TILDA/test_pipeline/DATA/sub-1314911/oxasl/output/std/calib_voxelwise /Users/anshuman/Desktop/TILDA_DATA/Main_Data/sub-1314911/calib_voxelwise/
+
+scp -r ppxas6@login001.augusta.nottingham.ac.uk:/gpfs01/share/TILDA/test_pipeline/DATA/sub-1327430/BRC_T1/analysis/anatMRI/T1/processed/data2std/  /Users/anshuman/Desktop/TILDA_DATA/Main_Data/sub-1327430 
+
+scp -r ppxas6@login001.augusta.nottingham.ac.uk:/gpfs01/share/TILDA/test_pipeline/DATA/sub-1327430/oxasl/output/std/calib_voxelwise /Users/anshuman/Desktop/TILDA_DATA/Main_Data/sub-1327430/calib_voxelwise/
+
+scp -r ppxas6@login001.augusta.nottingham.ac.uk:/gpfs01/share/TILDA/test_pipeline/DATA/sub-1327631/BRC_T1/analysis/anatMRI/T1/processed/data2std/  /Users/anshuman/Desktop/TILDA_DATA/Main_Data/sub-1327631 
+
+scp -r ppxas6@login001.augusta.nottingham.ac.uk:/gpfs01/share/TILDA/test_pipeline/DATA/sub-1327631/oxasl/output/std/calib_voxelwise /Users/anshuman/Desktop/TILDA_DATA/Main_Data/sub-1327631/calib_voxelwise/
+
+scp -r ppxas6@login001.augusta.nottingham.ac.uk:/gpfs01/share/TILDA/test_pipeline/DATA/sub-1333709/BRC_T1/analysis/anatMRI/T1/processed/data2std/  /Users/anshuman/Desktop/TILDA_DATA/Main_Data/sub-1333709 
+
+scp -r ppxas6@login001.augusta.nottingham.ac.uk:/gpfs01/share/TILDA/test_pipeline/DATA/sub-1333709/oxasl/output/std/calib_voxelwise /Users/anshuman/Desktop/TILDA_DATA/Main_Data/sub-1333709/calib_voxelwise/
+
+scp -r ppxas6@login001.augusta.nottingham.ac.uk:/gpfs01/share/TILDA/test_pipeline/DATA/sub-1333710/BRC_T1/analysis/anatMRI/T1/processed/data2std/  /Users/anshuman/Desktop/TILDA_DATA/Main_Data/sub-1333710 
+
+scp -r ppxas6@login001.augusta.nottingham.ac.uk:/gpfs01/share/TILDA/test_pipeline/DATA/sub-1333710/oxasl/output/std/calib_voxelwise /Users/anshuman/Desktop/TILDA_DATA/Main_Data/sub-1333710/calib_voxelwise/
+
