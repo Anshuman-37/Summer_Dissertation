@@ -177,6 +177,7 @@ def train(model,epochs,batch_size,x,y,test_x,test_y,channels):
     ## Freeing up GPU memory
     del X,Y;
     ## Predicting the results for test set 
+    test_x = test_x.to(device); test_y = test_y.to(device);
     test_predictions = model(test_x); test_loss = lossFn(test_predictions,test_y);
     return train_loss,test_loss,test_predictions
 
