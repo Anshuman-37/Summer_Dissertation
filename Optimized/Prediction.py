@@ -29,6 +29,7 @@ def plot_residuals_2D(y_target,y_predicted,sample_number):
     y_p = y_predicted[sample_number]
     y = y_target.cpu().detach().numpy()
     y_p = y_p.cpu().detach().numpy()
+    plt.imshow((y[sample_number][0,:,:]-y_p[0,:,:])**2,cmap = 'gray'); plt.show();
     
 def predictions_3D(y_target,y_predicted,sample_number):
     '''
