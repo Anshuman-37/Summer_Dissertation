@@ -173,7 +173,7 @@ def train(model,epochs,batch_size,x,y,test_x,test_y,channels):
         train_loss.append(batch_loss);
         ## Printing the verbose
         if(e%25 == 0): 
-            print(batch_loss[-1]); print((torch.cuda.memory_allocated())/(1024*1024))
+            print('Test loss ',batch_loss[-1]); print('Memory Occupied by the model',(torch.cuda.memory_allocated())/(1024*1024))
     ## Freeing up GPU memory
     del X,Y;
     ## Predicting the results for test set 
@@ -182,48 +182,3 @@ def train(model,epochs,batch_size,x,y,test_x,test_y,channels):
     return train_loss,test_loss,test_predictions
 
 
-# def train_model_3D(epochs,batch_size,x,y,channels=1):
-#     '''
-#     Params - Epochs, Batch Size, Data, Channels default = 1 
-#     Result - Returns the predictions and train loss 
-#     '''
-#     model = convnet_3D(channels).to(device)
-#     summary(model,(1, 91,109,91))
-#     ctr = 0; train_loss = []; f_loss = []; predic = [];
-
-#     ## Model criterion
-#     lossFn = MSELoss(); opt = Adam(model.parameters(), lr=1e-5);
-#     X = x.to(device); Y = y.to(device); model.train();
-
-#     ## Loop around the model
-#     for e in tqdm(range(0, epochs)):
-#         # Batch Loss and Train Loss 
-#         batch_loss = []; train_loss = [];
-#         # Permutation for the data
-#         permutation = torch.randperm(X.size()[0])
-#         ctr = ctr + 1;
-#         ## Loop over batches 
-#         for i in range(0,X.size()[0], batch_size):
-#             ## Intialize the optimizer
-#             opt.zero_grad();
-#             ## Setting up the indexes for batch
-#             indices = permutation[i:i+batch_size];
-#             batch_x, batch_y = X[indices], Y[indices];
-#             ## Making prediction and Observing the loss
-#             pred = model(batch_x) ; loss = lossFn(pred, batch_y);
-#             ##  Update the loss using gradient descent
-#             loss.backward(); opt.step();
-#             ## Saving the loss on cpu rather than gpu to optimize memory
-#             batch_loss.append(loss.cpu().detach().numpy()); 
-#             if ctr == epochs - 1 : predic.append(pred)
-#             ## Deleting the batch variables to optimize memoery
-#             del batch_x , batch_y; 
-#             ## Deleting the loss and the predictions made 
-#             del loss , pred;
-#         train_loss.append(batch_loss);
-#         ## Printing the verbose
-#         if(e%25 == 0): 
-#             print(batch_loss[-1]); print((torch.cuda.memory_allocated())/(1024*1024))
-#     ## Freeing up GPU memory
-#     del X,Y;
-#     return train_loss,predic
