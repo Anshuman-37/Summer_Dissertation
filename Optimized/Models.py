@@ -1,6 +1,6 @@
 
 ## Author - M.Sc. Machine Learning in Sciences Anshuman Singh - ppxas6@nottingham.ac.uk
-## Date - 21/06/2022 
+## Date - 21/07/2022 
 ## Title - Predicting Cereberal Blood Flow - Summer Disertation 2022 MLIS 
 
 
@@ -173,7 +173,7 @@ def train(model,epochs,batch_size,x,y,test_x,test_y,channels):
         train_loss.append(batch_loss);
         ## Printing the verbose
         if(e%25 == 0): 
-            print('Test loss ',batch_loss[-1]); print('Memory Occupied by the model',(torch.cuda.memory_allocated())/(1024*1024))
+            print('Loss ',batch_loss[-1] ,end = ' '); print('Memory Occupied by the model',(torch.cuda.memory_allocated())/(1024*1024))
     ## Freeing up GPU memory
     del X,Y;
     ## Predicting the results for test set 
